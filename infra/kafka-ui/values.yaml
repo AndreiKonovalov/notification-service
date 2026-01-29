@@ -1,0 +1,5 @@
+yamlApplicationConfig:
+  kafka:
+    clusters:
+      - name: fintech
+        bootstrapServers: fintech-kafka-kafka-bootstrap:9092
