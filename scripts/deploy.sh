@@ -25,6 +25,7 @@ kubectl wait crd/kafkas.kafka.strimzi.io \
 echo "===> Deploy Kafka"
 kubectl apply -n ${NAMESPACE} -f infra/kafka/kafka.yaml
 kubectl apply -n ${NAMESPACE} -f infra/kafka/nodepool.yaml
+kubectl apply -n ${NAMESPACE} -f infra/kafka/topics/notification-events.yaml
 
 echo "===> Wait for Kafka Ready"
 kubectl wait kafka/fintech-kafka -n ${NAMESPACE} \

@@ -1,0 +1,12 @@
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: notification-events
+  labels:
+    strimzi.io/cluster: fintech-kafka
+spec:
+  partitions: 3
+  replicas: 1
+  config:
+    retention.ms: 604800000   # 7 дней
+    cleanup.policy: delete
