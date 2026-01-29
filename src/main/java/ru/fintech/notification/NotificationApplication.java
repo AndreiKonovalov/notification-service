@@ -1,4 +1,9 @@
 package ru.fintech.notification;
 
-public class NotificationApplication {
+@SpringBootApplication
+class NotificationApplication {
+
+    fun main(args: Array<String>) {
+        runApplication<NotificationApplication>(*args)
+
 }
