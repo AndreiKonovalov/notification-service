@@ -5,11 +5,20 @@ spring:
   application:
     name: notification-service
   kafka:
-    bootstrap-servers: kafka.fintech.svc.cluster.local:9092
+    listener:
+      auto-startup: true
+    bootstrap-servers: fintech-kafka-kafka-bootstrap.fintech:9092
     consumer:
-      group-id: notification-group
+      properties:
+        group.protocol: consumer
+      enable-auto-commit: true
+      group-id: notification-service
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+logging:
+  level:
+    org.springframework.kafka: DEBUG
+    org.apache.kafka.clients.consumer.internals: TRACE
+    org.apache.kafka.clients.NetworkClient: DEBUG

@@ -33,7 +33,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations")
 
     //Kafka
-    implementation("org.springframework.kafka:spring-kafka")
+    implementation("org.springframework.boot:spring-boot-starter-kafka")
 
     //Мониторинг и метрики
     implementation("io.micrometer:micrometer-core")

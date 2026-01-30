@@ -1,0 +1,14 @@
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaNodePool
+metadata:
+  name: controller
+  namespace: fintech
+  labels:
+    strimzi.io/cluster: fintech-kafka
+spec:
+  replicas: 1
+  roles:
+    - controller
+  storage:
+    type: ephemeral
+

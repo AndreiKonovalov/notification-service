@@ -23,8 +23,9 @@ kubectl wait crd/kafkas.kafka.strimzi.io \
   --timeout=120s
 
 echo "===> Deploy Kafka"
+kubectl apply -n ${NAMESPACE} -f infra/kafka/controller-nodepool.yaml
+kubectl apply -n ${NAMESPACE} -f infra/kafka/broker-nodepool.yaml
 kubectl apply -n ${NAMESPACE} -f infra/kafka/kafka.yaml
-kubectl apply -n ${NAMESPACE} -f infra/kafka/nodepool.yaml
 kubectl apply -n ${NAMESPACE} -f infra/kafka/topics/notification-events.yaml
 
 echo "===> Wait for Kafka Ready"
