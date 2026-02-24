@@ -10,15 +10,17 @@ spring:
     bootstrap-servers: fintech-kafka-kafka-bootstrap.fintech:9092
     consumer:
       properties:
+        spring.json.value.default.type: com.fasterxml.jackson.databind.JsonNode
+        spring.json.trusted.packages: "*"
         group.protocol: consumer
       enable-auto-commit: true
       group-id: notification-service
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
 logging:
   level:
-    org.springframework.kafka: DEBUG
-    org.apache.kafka.clients.consumer.internals: TRACE
-    org.apache.kafka.clients.NetworkClient: DEBUG
+    org.springframework.kafka: INFO
+    org.apache.kafka.clients.consumer.internals: INFO
+    org.apache.kafka.clients.NetworkClient: INFO

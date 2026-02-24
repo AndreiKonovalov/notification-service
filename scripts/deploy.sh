@@ -27,6 +27,8 @@ kubectl apply -n ${NAMESPACE} -f infra/kafka/controller-nodepool.yaml
 kubectl apply -n ${NAMESPACE} -f infra/kafka/broker-nodepool.yaml
 kubectl apply -n ${NAMESPACE} -f infra/kafka/kafka.yaml
 kubectl apply -n ${NAMESPACE} -f infra/kafka/topics/notification-events.yaml
+kubectl apply -n ${NAMESPACE} -f infra/kafka/topics/analytics-events-topic.yaml
+
 
 echo "===> Wait for Kafka Ready"
 kubectl wait kafka/fintech-kafka -n ${NAMESPACE} \
